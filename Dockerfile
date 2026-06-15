@@ -30,4 +30,4 @@ RUN git init && \
 USER node
 
 EXPOSE 9000
-CMD [ "node", "src/cobalt" ]
+CMD ["sh", "-c", "API_PORT=${PORT:-9000} node src/cobalt"]
