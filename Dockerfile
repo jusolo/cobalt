@@ -21,6 +21,7 @@ COPY --from=build --chown=node:node /prod/api /app
 
 # Cobalt necesita un git repo para obtener info de versión
 RUN git init && \
+    git remote add origin https://github.com/imputnet/cobalt.git && \
     git config user.email "deploy@cobalt" && \
     git config user.name "deploy" && \
     git add -A && \
