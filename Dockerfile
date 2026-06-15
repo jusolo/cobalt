@@ -1,12 +1,12 @@
 FROM node:24-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 
 FROM base AS build
 WORKDIR /app
 COPY . /app
 
-RUN corepack enable
 RUN apk add --no-cache python3 alpine-sdk
 
 RUN pnpm install --prod --frozen-lockfile
